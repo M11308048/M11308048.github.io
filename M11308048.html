@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不只是「很久很久以前」：童話暗黑史與大翻轉</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            accent: '#6366f1',
+                            secondary: '#ec4899',
+                            surface: 'rgba(255, 255, 255, 0.05)',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Outfit', 'Noto Sans TC', 'sans-serif'],
+                        body: ['Noto Sans TC', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050811;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #818cf8 0%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+        }
+
+        .section-number {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(to bottom, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="font-body custom-scrollbar">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-slate-900 z-50">
+        <div id="progress" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-0 transition-all duration-150"></div>
+    </div>
+
+    <!-- Navigation Overlay -->
+    <nav class="fixed top-0 w-full py-6 px-8 flex justify-between items-center z-40 bg-gradient-to-b from-black/50 to-transparent backdrop-blur-sm">
+        <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center font-bold text-white shadow-lg">M</div>
+            <span class="font-display font-semibold tracking-tight text-lg">M11308048</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+            <a href="#" class="hover:text-white transition-colors">History</a>
+            <a href="#" class="hover:text-white transition-colors">Psychology</a>
+            <a href="#" class="hover:text-white transition-colors">Evolution</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 overflow-hidden">
+        <div class="absolute inset-0 hero-gradient"></div>
+        
+        <div class="relative z-10 max-w-5xl w-full">
+            <div class="mb-6 inline-flex items-center px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest animate-pulse">
+                Evolution of Fairy Tales
+            </div>
+            
+            <h1 class="font-display text-5xl md:text-8xl font-black mb-8 leading-tight tracking-tighter">
+                不只是 <span class="text-gradient">很久很久以前</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-slate-400 max-w-2xl leading-relaxed mb-12 font-light">
+                那些你不知道的童話暗黑史與大翻轉。扒開華麗的糖衣，探索背後驚人的秘密。
+            </p>
+
+            <!-- Banner Image -->
+            <div class="image-container animate-float">
+                <img src='https://opal.google/board/blobs/e9a0fb07-81d0-40aa-945d-a95c03a16a57' alt='Adventure Time Style Fairy Tale Evolution' class="w-full object-cover shadow-2xl border border-white/10" />
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </header>
+
+    <main class="relative z-10 max-w-5xl mx-auto px-6 py-24">
+        
+        <!-- Intro Text -->
+        <section class="mb-32">
+            <div class="glass-card p-8 md:p-12 rounded-3xl leading-relaxed">
+                <p class="text-xl md:text-2xl text-slate-200 font-light italic mb-8">
+                    "你以為童話故事只是睡前哄小孩的罐頭台詞，或是迪士尼電影裡那些閃閃發光的快樂結局嗎？那你就大錯特錯了。"
+                </p>
+                <p class="text-slate-400 text-lg">
+                    如果我們把童話比作一瓶美酒，那它絕非超市裡隨處可見的葡萄汁，而是經過數百年發酵、混合了禁忌、鮮血、慾望與社會演化史的烈酒。「很久很久以前」這句開場白，就像是一道催眠指令，瞬間讓我們斷開現實世界的邏輯，進入一個「水很深」的異次元空間。
+                </p>
+            </div>
+        </section>
+
+        <!-- Bento Layout for Content Sections -->
+        <div class="space-y-32">
+            
+            <!-- Section 1: Magic Formula -->
+            <section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-5 order-2 md:order-1">
+                    <span class="section-number text-6xl">01</span>
+                    <h2 class="font-display text-4xl font-bold mt-4 mb-6">童話的魔法公式</h2>
+                    <p class="text-slate-400 leading-relaxed">
+                        在童話的世界觀裡，物理定律是拿來吃的。這種「時空斷裂感」正是它的魔力來源。英雄通常帥氣正直，反派則邪惡得純粹——這些並非真實的人類，而是我們內心特質的「化身」。
+                    </p>
+                </div>
+                <div class="md:col-span-7 order-1 md:order-2">
+                    <div class="glass-card p-8 rounded-3xl border-l-4 border-l-indigo-500">
+                        <h4 class="text-indigo-400 font-bold mb-4 uppercase tracking-wider text-sm">Psychological Hack</h4>
+                        <p class="text-xl text-slate-200">「在一個遙遠的地方」是一種高明的心理暗示。它模糊了歷史時空，讓普世價值跨越國界，永遠保持新鮮感。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Archaeology (Cards) -->
+            <section>
+                <div class="text-center mb-16">
+                    <span class="section-number text-6xl">02</span>
+                    <h2 class="font-display text-4xl font-bold mt-4">童話考古學</h2>
+                    <p class="text-slate-400 mt-2">原本的故事其實超「重口味」？</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-6 text-indigo-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">17 世紀法國名媛秀</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            「童話」一詞源於法國貴族沙龍。佩羅將粗獷、血腥的民間傳說「文雅化」，這才有了舞會與華麗玻璃鞋。
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl">
+                        <div class="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center mb-6 text-pink-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.823.775l-.522.696a2 2 0 00.158 2.651l1.574 1.574a2 2 0 002.651.158l.696-.522a2 2 0 011.176-.381H14.5a2 2 0 011.176.381l.696.522a2 2 0 002.651-.158l1.574-1.574a2 2 0 00.158-2.651l-.522-.696z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">格林兄弟的修圖術</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            1812年的初版充滿截肢與殘酷報復。為了市場行銷，後續版本將「親生母親」改成「繼母」，完成了去油膩處理。
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl">
+                        <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6 text-purple-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">安徒生的文青傷感</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            真正的文學大師。他將憂鬱、階級孤獨注入故事，讓童話從單純傳說升華到悲劇美學的高度。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Psychology -->
+            <section class="relative">
+                <div class="absolute -right-20 top-0 w-64 h-64 bg-indigo-600/10 blur-[100px]"></div>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <span class="section-number text-6xl">03</span>
+                        <h2 class="font-display text-4xl font-bold mt-4 mb-8">心理醫生的處方箋</h2>
+                        <div class="space-y-6 text-slate-400 text-lg leading-relaxed">
+                            <p>榮格派學者認為，童話是人類<span class="text-indigo-400 font-semibold">「集體潛意識」</span>的展現。女巫與怪獸，其實都是我們潛意識中「陰影（Shadow）」的投射。</p>
+                            <p>童話並非在騙孩子說「世界上沒有怪物」，而是在告訴孩子：「怪物是可以被戰勝的。」</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 bg-slate-900/50 p-8 rounded-[2rem] border border-white/5 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <p class="text-2xl font-display italic text-white relative z-10 leading-snug">
+                            "童話是孩子認識世界的模擬器。透過戰勝怪物，學會處理內在焦慮。"
+                        </p>
+                        <p class="mt-4 text-slate-500 text-sm">— 布魯諾·貝特罕</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Controversy -->
+            <section class="glass-card rounded-[3rem] p-12 overflow-hidden relative">
+                <div class="relative z-10">
+                    <span class="section-number text-6xl">04</span>
+                    <h2 class="font-display text-4xl font-bold mt-4 mb-12">那些被吐槽的爭議點</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-xl font-bold text-pink-400 mb-4">公主病的起源？</h3>
+                            <p class="text-slate-400 leading-relaxed">傳統童話強化了性別刻板印象。女性往往是「被動等待救援」的受害者，男性則是「強大屠龍者」。這種觀念在現代已顯得格格不入。</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-indigo-400 mb-4">迪士尼濾鏡的威力</h3>
+                            <p class="text-slate-400 leading-relaxed">「迪士尼化（Disneyfication）」抹煞了悲劇力量。當一切都變成 Happy Ending，我們是否失去了思考苦難的機會？</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Future -->
+            <section>
+                <div class="text-center mb-16">
+                    <span class="section-number text-6xl">05</span>
+                    <h2 class="font-display text-4xl font-bold mt-4">未來童話：進化與覺醒</h2>
+                </div>
+                
+                <div class="bento-grid">
+                    <div class="col-span-12 md:col-span-8 glass-card p-10 rounded-3xl">
+                        <h3 class="text-2xl font-bold mb-4">反派大翻身 & 女力覺醒</h3>
+                        <p class="text-slate-400 mb-6">《黑魔女》告訴我們沒有人天生邪惡；《冰雪奇緣》的 Elsa 忙著拯救王國。婚姻不再是通往幸福的唯一門票。</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-slate-300">#多元視角</span>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs text-slate-300">#自我價值</span>
+                        </div>
+                    </div>
+                    <div class="col-span-12 md:col-span-4 glass-card p-10 rounded-3xl bg-indigo-600/20">
+                        <h3 class="text-2xl font-bold mb-4">沉浸式魔法</h3>
+                        <p class="text-slate-400">從書本跳進《艾爾登法環》，親自走進危險森林。</p>
+                    </div>
+                    <div class="col-span-12 glass-card p-10 rounded-3xl border-t-4 border-t-pink-500">
+                        <h3 class="text-2xl font-bold mb-4 text-gradient">暗黑版成人童話</h3>
+                        <p class="text-slate-400">針對成人市場，利用魔幻濾鏡討論戰爭、心理創傷或政治寓言，證明童話受眾從不僅限於孩子。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Conclusion -->
+        <section class="mt-40 text-center">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="font-display text-4xl font-bold mb-8">結語</h2>
+                <p class="text-xl text-slate-300 leading-relaxed mb-12">
+                    童話從來就不是靜止不動的古董，它更像是一隻會變身的精靈，隨著時代不斷進化。它承載了人類最古老的恐懼，也寄託了我們最美好的希望。
+                </p>
+                <div class="p-1 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 inline-block">
+                    <div class="bg-brand-dark px-8 py-4 rounded-xl">
+                        <span class="text-lg font-bold">感受那股跨越千年的生命力吧！</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interaction Area -->
+        <section class="mt-32 pt-20 border-t border-white/10">
+            <div class="glass-card p-10 rounded-[2.5rem]">
+                <h3 class="font-display text-3xl font-bold mb-6 flex items-center">
+                    <span class="mr-4">💬</span> 讀者互動
+                </h3>
+                <p class="text-slate-300 text-lg mb-8">
+                    如果你能改寫一個經典童話的結局，你會想幫哪個角色翻案？是給被誤解的女巫一個擁抱，還是讓灰姑娘脫下那雙擠腳的玻璃鞋？
+                </p>
+                <div class="relative">
+                    <textarea class="w-full bg-slate-900/50 border border-white/10 rounded-2xl p-6 text-white focus:outline-none focus:border-indigo-500 transition-all min-h-[150px]" placeholder="分享你的奇思妙想..."></textarea>
+                    <button class="mt-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg shadow-indigo-500/20 active:scale-95">
+                        發表評論
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Progress bar scroll effect
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress").style.width = scrolled + "%";
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
